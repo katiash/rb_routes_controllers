@@ -1,0 +1,30 @@
+<h1>Products#index</h1>
+<h1> Hello. I am index.html.erb in the views/products folder</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+
+<h1>Listing Users</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+      <td>Created At</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%=product.name %></td>
+    <td><%=product.description %></td>
+    <td><%=product.created_at%></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<form action="/products" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" name="name">
+    <textarea name='description'></textarea>
+    <input type='submit' value='Create'>
+</form>
