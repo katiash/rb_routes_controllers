@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
     unless params[:your_name]
       render text: 'Say Hello, whoever you are!'
     else
-      if params[:your_name] == "Michael"
-        redirect 'say/hello/joe'
+      if params[:your_name] == "michael"
+        redirect_to '/say/hello/joe' and return
       else
         render text: "Say Hello #{params[:your_name].capitalize}"
       end
